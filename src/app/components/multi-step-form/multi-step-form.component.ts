@@ -50,7 +50,6 @@ export class MultiStepFormComponent implements OnInit {
   buildForm(currentFormContent: any): FormGroup {
     const formDetails = Object.keys(currentFormContent).reduce((obj, key) => {
       obj[key] = ["", this.getValidators(currentFormContent[key])];
-
       return obj;
     }, {});
 
@@ -103,7 +102,6 @@ export class MultiStepFormComponent implements OnInit {
   goToStep(step: string): void {
     this.activeStepIndex =
       step === "prev" ? this.activeStepIndex - 1 : this.activeStepIndex + 1;
-
     this.setFormPreview();
   }
 
