@@ -3,10 +3,11 @@ const COUNTRY_LIST = [
   { name: "United Kingdoms", code: "gb" },
   { name: "India", code: "in" }
 ];
+// get countries dynamicall from API
 
 const DATA_STEP_1 = {
   salutation: {
-    type: "select", // modify to remove countries option
+    type: "select",
     options: [{ name: "Ms" }, { name: "Mr" }, { name: "Mrs" }],
     validations: {},
     errors: {},
@@ -142,7 +143,7 @@ const DATA_STEP_2 = {
     placeholder: "Ownership Details"
   }
 };
-/*
+
 const DATA_STEP_3 = {
   IdentityAadharOrOrganisationCertificate: {
     type: "file",
@@ -157,10 +158,9 @@ const DATA_STEP_3 = {
     placeholder: "Upload tax ID document"
   }
 };
-*/
 
-/*
-const DATA_STEP_3 = {
+
+const DATA_STEP_4 = {
   accountNumber: {
     type: "text",
     validations: {},
@@ -216,8 +216,8 @@ const DATA_STEP_3 = {
     placeholder: "Nominee Addess"
   }
 };
-*/
-const DATA_STEP_3 = {
+
+const DATA_STEP_5 = {
   experienceDetails: {
     type: "textarea",
     validations: {},
@@ -232,11 +232,15 @@ const DATA_STEP_3 = {
   }
 };
 
+const DATA_STEP_6 ={};
+
 const STEP_ITEMS = [
   { label: "Basic Details", data: DATA_STEP_1 },
   { label: "Organisational Details", data: DATA_STEP_2 },
-  { label: "Upload documents", data: DATA_STEP_3 },
-  /*{ label: "Account Details", data: DATA_STEP_4 }*/
+  { label: "Upload ID Documents", data: DATA_STEP_3 },
+  { label: "Account Details", data: DATA_STEP_4 },
+  { label: "Experience Details", data: DATA_STEP_5 },
+  { label: "Schedule Your Inspection", data: DATA_STEP_6 },
   { label: "Review & Submit", data: {} }
 ];
 
