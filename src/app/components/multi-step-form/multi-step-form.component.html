@@ -38,7 +38,12 @@
                 />
               </ng-container>
 						</div>
-
+ <!-- 
+   touched -> filed has been touched
+   dirty -> field has been modified
+   invalid -> field content is not valid
+   
+  -->
 						<p class="validation-error" *ngIf="
                 (masterForm[i].get(field).dirty ||
                   masterForm[i].get(field).touched) &&
