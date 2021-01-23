@@ -3,97 +3,139 @@ const COUNTRY_LIST = [
   { name: "United Kingdoms", code: "gb" },
   { name: "India", code: "in" }
 ];
-// get countries dynamicall from API
+// get countries dynamically from API
+
+const is_required = true;
 
 const DATA_STEP_1 = {
   salutation: {
     type: "select",
     options: [{ name: "Ms" }, { name: "Mr" }, { name: "Mrs" }],
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: {},
     placeholder: "Salutation"
   },
   firstName: {
     type: "text",
-    validations: {},
-    errors: { required: "First Name cannot be left blank" },
+    validations: {
+      required: is_required
+    },
+    errors: {
+      required: "First Name cannot be left blank",
+      minlength: "Minimum length 2",
+      maxlength: "Maximum length 30"
+    },
     placeholder: "First Name"
   },
   middleName: {
     type: "text",
-    validations: {},
-    errors: { required: "Middle Name cannot be left blank" },
+    validations: {
+      required: is_required
+    },
+    errors: {
+      required: "Middle Name cannot be left blank",
+      minlength: "Minimum length 2",
+      maxlength: "Maximum length 30"
+    },
     placeholder: "Middle name"
   },
   lastName: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Last Name cannot be left blank" },
     placeholder: "Last Name"
   },
   houseNumber: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "House Number cannot be left blank" },
     placeholder: "House Number"
   },
   streetName: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Street Name cannot be left blank" },
     placeholder: "Street Name"
   },
   area: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Area cannot be left blank" },
     placeholder: "Area"
   },
   city: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "City cannot be left blank" },
     placeholder: "City"
   },
   state: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "State cannot be left blank" },
     placeholder: "State"
   },
   country: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Country cannot be left blank" },
     placeholder: "Country"
   },
   landmark: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Landmark cannot be left blank" },
     placeholder: "Landmark"
   },
   phoneNumber: {
     type: "phone",
-    validations: { pattern: /^\d{10}$/ },
+    validations: {
+      required: is_required,
+      pattern: /^\d{10}$/
+    },
     errors: { required: "Phone Number cannot be left blank" },
     placeholder: "Phone Number"
   },
   alternatePhoneNumber: {
     type: "phone",
-    validations: { pattern: /^\d{10}$/ },
+    validations: {
+      required: is_required,
+      pattern: /^\d{10}$/
+    },
     errors: { required: "Alternate Phone Number cannot be left blank" },
     placeholder: "Phone Number"
   },
   email: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Email cannot be left blank" },
     placeholder: "Email"
   },
   alternateEmail: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "Alternate Email cannot be left blank" },
     placeholder: "Alternate Email"
   },
@@ -105,19 +147,25 @@ const DATA_STEP_1 = {
   },
   IndividualOrOrganisation: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: { required: "This field cannot be left blank" },
     placeholder: "Individual Or Organisation"
   },
   taxId: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: {},
     placeholder: "Tax Id"
   },
   password: {
     type: "text",
-    validations: {},
+    validations: {
+      required: is_required
+    },
     errors: {},
     placeholder: "Password"
   }
@@ -158,7 +206,6 @@ const DATA_STEP_3 = {
     placeholder: "Upload tax ID document"
   }
 };
-
 
 const DATA_STEP_4 = {
   accountNumber: {
@@ -232,7 +279,7 @@ const DATA_STEP_5 = {
   }
 };
 
-const DATA_STEP_6 ={};
+const DATA_STEP_6 = {};
 
 const STEP_ITEMS = [
   { label: "Basic Details", data: DATA_STEP_1 },
