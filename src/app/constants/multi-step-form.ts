@@ -5,8 +5,6 @@ const COUNTRY_LIST = [
 ];
 // get countries dynamically from API
 
-const is_required = true;
-
 const DATA_STEP_1 = {
   salutation: {
     type: "select",
@@ -223,7 +221,7 @@ const DATA_STEP_4 = {
     placeholder: "Nominee Email"
   },
   NomineeAddress: {
-    type: "textarea",
+    type: "text",
     validations: {},
     errors: {},
     placeholder: "Nominee Addess"

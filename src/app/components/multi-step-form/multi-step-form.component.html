@@ -11,13 +11,17 @@
 
 							<ng-container *ngSwitchCase="'textarea'">
 								<textarea
+                  maxlength="100"
+                  rows="6"
+                  columns="12"
                   [id]="field"
                   [formControlName]="field"
                   [placeholder]="currentFormContent[i][field].placeholder"></textarea>
 							</ng-container>
 
 							<ng-container *ngSwitchCase="'file'">
-								<input type="file" (change)="onFileChange($event)" />
+								<input *ngIf="field === 'UploadWorkDetails'" type="file" multiple/>
+								<input *ngIf="field !== 'UploadWorkDetails'" type="file" (change)="onFileChange($event)" />
               </ng-container>
 								<ng-container *ngSwitchCase="'select'">
 									<select [formControlName]="field" [id]="field">
@@ -38,11 +42,11 @@
                 />
               </ng-container>
 						</div>
- <!-- 
-   touched -> filed has been touched
+						<!-- 
+   touched -> field has been touched
    dirty -> field has been modified
    invalid -> field content is not valid
-   
+
   -->
 						<p class="validation-error" *ngIf="
                 (masterForm[i].get(field).dirty ||
@@ -64,6 +68,16 @@
 					</ul>
 				</div>
 
+				<div>
+					<button type="button"
+                  *ngIf ="activeStepIndex === 0"
+                  (click)="validateEmail()">
+            Send validation email
+          </button>
+					<h4>{{isValidated}}</h4>
+				</div>
+
+				<!-- also disable next button if isValidated is false-->
 				<div class="button-container">
 					<button
             type="button"
@@ -77,9 +91,9 @@
           >Submit</button>
 					<button
             type="button"
-            [disabled]="activeStepIndex === stepItems.length - 1 || masterForm[i].invalid"
+            [disabled]="(activeStepIndex === stepItems.length - 1 || masterForm[i].invalid)"
             (click)="goToStep('next')"
-          >Next</button>
+          >Save and Next</button>
 				</div>
 			</div>
 		</form>

@@ -18,6 +18,7 @@ export class MultiStepFormComponent implements OnInit {
 
   @Output() readonly formSubmit: EventEmitter<any> = new EventEmitter<any>();
 
+  isValidated: boolean;
   activeStepIndex: number;
   currentFormContent: Array<any>;
   formData: any;
@@ -33,6 +34,7 @@ export class MultiStepFormComponent implements OnInit {
 
   ngOnInit() {
     // TODO: add interfaces and enums wherever appropriate
+    this.isValidated = false;
     this.activeStepIndex = 0;
     this.masterForm = [];
     this.currentFormContent = [];
@@ -44,6 +46,11 @@ export class MultiStepFormComponent implements OnInit {
       this.formFields.push(Object.keys(this.currentFormContent[i])); // holds string values for each field of all steps
       this.masterForm.push(this.buildForm(this.currentFormContent[i])); // holds all form groups
     });
+  }
+
+  validateEmail() {
+    //send email and authenticate
+    this.isValidated = true;
   }
 
   // build separate FormGroups for each form
